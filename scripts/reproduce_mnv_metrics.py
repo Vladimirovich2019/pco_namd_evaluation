@@ -17,9 +17,9 @@ LABELS = ['1','2','3','Mix']
 NAMES = {'1':'Type 1','2':'Type 2','3':'Type 3','Mix':'Mix'}
 
 EXPERIMENTS = [
-    ("GPT-5.4  CFP Only",     "predictions_mnv_cfp", "gpt-5"),
-    ("GPT-5.4  OCT Only",     "predictions_mnv_oct", "gpt-5"),
-    ("GPT-5.4  CFP+OCT",      "predictions",         "gpt-5"),
+    ("GPT-5  CFP Only",     "predictions_mnv_cfp", "gpt-5"),
+    ("GPT-5  OCT Only",     "predictions_mnv_oct", "gpt-5"),
+    ("GPT-5  CFP+OCT",      "predictions",         "gpt-5"),
     ("Gemini 3.1 Pro  CFP Only", "predictions_mnv_cfp", "gemini-3.1-pro-preview-thinking"),
     ("Gemini 3.1 Pro  OCT Only", "predictions_mnv_oct", "gemini-3.1-pro-preview-thinking"),
     ("Gemini 3.1 Pro  CFP+OCT",  "predictions",         "gemini-3.1-pro-preview-thinking"),
