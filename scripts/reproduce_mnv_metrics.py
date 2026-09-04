@@ -7,14 +7,14 @@ from collections import Counter
 def map_mnv(x):
     if not x:
         return None
-    m = {'Type 1 MNV (Occult)':'1','Type 2 MNV (Classic)':'2','Type 3 MNV':'3','Mixed MNV':'Mix'}
+    m = {'Type 1 MNV (Occult)':'1','Type 2 MNV (Classic)':'2','Type 3 MNV':'3','Mix MNV':'Mix'}
     for k, v in m.items():
         if k in str(x):
             return v
     return None
 
 LABELS = ['1','2','3','Mix']
-NAMES = {'1':'Type 1','2':'Type 2','3':'Type 3','Mix':'Mixed'}
+NAMES = {'1':'Type 1','2':'Type 2','3':'Type 3','Mix':'Mix'}
 
 EXPERIMENTS = [
     ("GPT-5.4  CFP Only",     "predictions_mnv_cfp", "gpt-5"),

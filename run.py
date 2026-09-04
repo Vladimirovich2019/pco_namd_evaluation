@@ -13,7 +13,7 @@ MNV_PROMPT = """\
 You are an expert ophthalmologist and medical imaging analysis assistant specializing in retinal diseases. You excel at combining Fundus Photography and Optical Coherence Tomography (OCT) images to precisely classify Macular Neovascularization (MNV) secondary to Neovascular Age-related Macular Degeneration (nAMD) causes.
 
 # Task
-Carefully analyze the provided [Fundus Photo] and [OCT Images]. Based on the strict "nAMD MNV Classification Criteria" defined below, determine the patient's MNV type (Type 1, Type 2, Type 3, or Mixed) and provide a detailed diagnostic rationale.
+Carefully analyze the provided [Fundus Photo] and [OCT Images]. Based on the strict "nAMD MNV Classification Criteria" defined below, determine the patient's MNV type (Type 1, Type 2, Type 3, or Mix) and provide a detailed diagnostic rationale.
 
 # nAMD MNV Classification Criteria
 Strictly adhere to the following pathological features and OCT manifestations for classification. The key differentiator is the LOCATION of the primary neovascular lesion relative to the RPE.
@@ -43,21 +43,21 @@ Strictly adhere to the following pathological features and OCT manifestations fo
   - May eventually involve PED as the lesion reaches the RPE.
 - **Positive Diagnosis Requires**: Intraretinal origin of the lesion with a characteristic hyperreflective band crossing retinal layers.
 
-## 4. Mixed MNV
+## 4. Mix MNV
 - **Location**: Neovascular complex occupies **MULTIPLE compartments simultaneously** — typically sub-RPE (Type 1 component) AND subretinal (Type 2 component).
 - **Key OCT Features**: 
   - Fibrovascular PED (Type 1 pattern) coexisting with a discrete subretinal hyperreflective mass (Type 2 pattern).
   - RPE may be elevated in some areas and breached in others.
-  - Flat-irregular PED with overlying SHRM is a common Mixed pattern.
+  - Flat-irregular PED with overlying SHRM is a common Mix pattern.
 - **Positive Diagnosis Requires**: Clear evidence of BOTH sub-RPE AND subretinal neovascular components.
 
 # Differential Diagnosis Checklist (MANDATORY)
 Before finalizing your classification, answer ALL of the following questions:
-1. **RPE Status**: Is the RPE INTACT (continuously elevated over lesion) or BREACHED/DISRUPTED? → Intact → favors Type 1; Breached → favors Type 2 or Mixed.
+1. **RPE Status**: Is the RPE INTACT (continuously elevated over lesion) or BREACHED/DISRUPTED? → Intact → favors Type 1; Breached → favors Type 2 or Mix.
 2. **Lesion Compartment**: Is the primary hyperreflective lesion SUB-RPE, SUBRETINAL, or INTRARETINAL? → This is the single most important determinant.
-3. **Subretinal Component**: Is there a discrete hyperreflective mass in the subretinal space (above RPE)? → If YES, this rules out pure Type 1. Consider Type 2 or Mixed.
+3. **Subretinal Component**: Is there a discrete hyperreflective mass in the subretinal space (above RPE)? → If YES, this rules out pure Type 1. Consider Type 2 or Mix.
 4. **Intraretinal Origin**: Does the lesion show an intraretinal hyperreflective band originating from retinal vessels? → If YES, consider Type 3.
-5. **Multiple Compartments**: Are there neovascular components in MORE THAN ONE compartment? → If YES, classify as Mixed.
+5. **Multiple Compartments**: Are there neovascular components in MORE THAN ONE compartment? → If YES, classify as Mix.
 
 **CRITICAL**: Type 1 is NOT the default diagnosis. It requires POSITIVE evidence of an intact RPE over a sub-RPE lesion with NO discrete subretinal component. If you see any subretinal hyperreflective mass, do NOT classify as Type 1.
 
@@ -71,7 +71,7 @@ Before finalizing your classification, answer ALL of the following questions:
 Please output the results in the following structured text format:
 
 ## Diagnostic Report
-- **Final Classification**: [Type 1 MNV (Occult) / Type 2 MNV (Classic) / Type 3 MNV (RAP) / Mixed MNV]
+- **Final Classification**: [Type 1 MNV (Occult) / Type 2 MNV (Classic) / Type 3 MNV (RAP) / Mix MNV]
 - **Confidence Level**: [High / Medium / Low]
 
 ## Detailed Rationale
@@ -90,7 +90,7 @@ Please output the results in the following structured text format:
 [Brief follow-up suggestions]
 
 # Output Format
-IMPORTANT: Your response MUST end with a <prediction> tag containing exactly one of: Type 1 MNV (Occult), Type 2 MNV (Classic), Type 3 MNV (Retinal Angiomatous Proliferation - RAP), Mixed MNV.
+IMPORTANT: Your response MUST end with a <prediction> tag containing exactly one of: Type 1 MNV (Occult), Type 2 MNV (Classic), Type 3 MNV (Retinal Angiomatous Proliferation - RAP), Mix MNV.
 For example: <prediction>Type 2 MNV (Classic)</prediction>"""
 
 
@@ -99,7 +99,7 @@ MNV_PROMPT_CFP = """\
 You are an expert ophthalmologist specializing in retinal diseases. You excel at interpreting Color Fundus Photography to classify Macular Neovascularization (MNV) subtypes.
 
 # Task
-Carefully analyze the provided [Fundus Photo]. **No OCT image is available.** Based solely on the CFP and the strict "nAMD MNV Classification Criteria" below, determine the patient's MNV type (Type 1, Type 2, Type 3, or Mixed) and provide a detailed diagnostic rationale.
+Carefully analyze the provided [Fundus Photo]. **No OCT image is available.** Based solely on the CFP and the strict "nAMD MNV Classification Criteria" below, determine the patient's MNV type (Type 1, Type 2, Type 3, or Mix) and provide a detailed diagnostic rationale.
 
 # nAMD MNV Classification Criteria
 Strictly adhere to the following pathological features. The key differentiator is the LOCATION of the primary neovascular lesion relative to the RPE, which must be inferred from CFP signs.
@@ -116,7 +116,7 @@ Strictly adhere to the following pathological features. The key differentiator i
 - **CFP Signs**: Scattered **intraretinal hemorrhages** (dot/blot shaped, within retinal layers, not subretinal) are a key early sign. Cystoid macular edema may be visible as retinal thickening. PED may be present in later stages. The lesion appears less discrete than Type 2.
 - **Pathology**: Abnormal vessels originate within the retina (deep capillary plexus), extending outward.
 
-## 4. Mixed MNV
+## 4. Mix MNV
 - **CFP Signs**: Features of multiple types simultaneously — e.g., a well-demarcated grayish lesion (Type 2 pattern) with surrounding ill-defined elevation and drusen (Type 1 pattern), OR intraretinal hemorrhages (Type 3) with a classic CNV membrane.
 - **Pathology**: Neovascular complex in multiple compartments.
 
@@ -125,7 +125,7 @@ Strictly adhere to the following pathological features. The key differentiator i
 2. **Lesion Borders**: Well-demarcated, distinct → favors Type 2. Ill-defined, grayish → favors Type 1.
 3. **Lipid Exudates**: Present in circinate pattern → favors Type 1 or chronic Type 2.
 4. **PED Signs**: Dome-shaped elevation without distinct borders → favors Type 1.
-5. **Multiple Patterns**: Features from more than one type → Mixed.
+5. **Multiple Patterns**: Features from more than one type → Mix.
 
 **CRITICAL**: Type 1 is NOT the default. If you see well-demarcated borders or subretinal hemorrhage, strongly consider Type 2.
 
@@ -140,7 +140,7 @@ Strictly adhere to the following pathological features. The key differentiator i
 Please output:
 
 ## Diagnostic Report
-- **Final Classification**: [Type 1 MNV (Occult) / Type 2 MNV (Classic) / Type 3 MNV (RAP) / Mixed MNV]
+- **Final Classification**: [Type 1 MNV (Occult) / Type 2 MNV (Classic) / Type 3 MNV (RAP) / Mix MNV]
 - **Confidence Level**: [High / Medium / Low]
 
 ## Detailed Rationale
@@ -149,7 +149,7 @@ Please output:
 3. **Classification Logic**: [Why this type, why NOT the others]
 
 # Output Format
-IMPORTANT: Your response MUST end with a <prediction> tag containing exactly one of: Type 1 MNV (Occult), Type 2 MNV (Classic), Type 3 MNV (Retinal Angiomatous Proliferation - RAP), Mixed MNV.
+IMPORTANT: Your response MUST end with a <prediction> tag containing exactly one of: Type 1 MNV (Occult), Type 2 MNV (Classic), Type 3 MNV (Retinal Angiomatous Proliferation - RAP), Mix MNV.
 For example: <prediction>Type 2 MNV (Classic)</prediction>"""
 
 
@@ -158,7 +158,7 @@ MNV_PROMPT_OCT = """\
 You are an expert ophthalmologist specializing in retinal diseases. You excel at interpreting Optical Coherence Tomography (OCT) to classify Macular Neovascularization (MNV) subtypes.
 
 # Task
-Carefully analyze the provided [OCT Image]. **No Fundus Photo is available.** Based solely on this OCT B-scan and the strict "nAMD MNV Classification Criteria" below, determine the patient's MNV type (Type 1, Type 2, Type 3, or Mixed) and provide a detailed diagnostic rationale.
+Carefully analyze the provided [OCT Image]. **No Fundus Photo is available.** Based solely on this OCT B-scan and the strict "nAMD MNV Classification Criteria" below, determine the patient's MNV type (Type 1, Type 2, Type 3, or Mix) and provide a detailed diagnostic rationale.
 
 # nAMD MNV Classification Criteria
 The key differentiator is the LOCATION of the primary neovascular lesion relative to the RPE, as seen on OCT.
@@ -178,7 +178,7 @@ The key differentiator is the LOCATION of the primary neovascular lesion relativ
 - **OCT Features**: Hyperreflective band within retinal layers extending toward deep tissues. Prominent intraretinal cystic spaces adjacent to lesion. May eventually involve PED.
 - **Positive Diagnosis Requires**: Intraretinal origin with hyperreflective band crossing retinal layers.
 
-## 4. Mixed MNV
+## 4. Mix MNV
 - **Location**: Neovascular complex in **multiple compartments** (sub-RPE + subretinal).
 - **OCT Features**: Fibrovascular PED (Type 1 pattern) coexisting with discrete subretinal hyperreflective mass (Type 2 pattern). RPE may be elevated in some areas and breached in others.
 - **Positive Diagnosis Requires**: Evidence of BOTH sub-RPE AND subretinal components.
@@ -188,7 +188,7 @@ The key differentiator is the LOCATION of the primary neovascular lesion relativ
 2. **Lesion Compartment**: Primary lesion is SUB-RPE, SUBRETINAL, or INTRARETINAL?
 3. **Subretinal Component**: Is there a discrete hyperreflective mass above RPE? → If YES, rules out pure Type 1.
 4. **Intraretinal Origin**: Is there a hyperreflective band originating within the retina? → If YES, consider Type 3.
-5. **Multiple Compartments**: Components in more than one compartment? → If YES, Mixed.
+5. **Multiple Compartments**: Components in more than one compartment? → If YES, Mix.
 
 **CRITICAL**: Type 1 is NOT the default. If you see any subretinal hyperreflective mass or RPE breach, do NOT classify as Type 1.
 
@@ -202,7 +202,7 @@ The key differentiator is the LOCATION of the primary neovascular lesion relativ
 Please output:
 
 ## Diagnostic Report
-- **Final Classification**: [Type 1 MNV (Occult) / Type 2 MNV (Classic) / Type 3 MNV (RAP) / Mixed MNV]
+- **Final Classification**: [Type 1 MNV (Occult) / Type 2 MNV (Classic) / Type 3 MNV (RAP) / Mix MNV]
 - **Confidence Level**: [High / Medium / Low]
 
 ## Detailed Rationale
@@ -211,7 +211,7 @@ Please output:
 3. **Classification Logic**: [Why this type, why NOT the others]
 
 # Output Format
-IMPORTANT: Your response MUST end with a <prediction> tag containing exactly one of: Type 1 MNV (Occult), Type 2 MNV (Classic), Type 3 MNV (Retinal Angiomatous Proliferation - RAP), Mixed MNV.
+IMPORTANT: Your response MUST end with a <prediction> tag containing exactly one of: Type 1 MNV (Occult), Type 2 MNV (Classic), Type 3 MNV (Retinal Angiomatous Proliferation - RAP), Mix MNV.
 For example: <prediction>Type 2 MNV (Classic)</prediction>"""
 
 
@@ -359,12 +359,12 @@ def _map_mnv_label(x):
         return None
     x_str = str(x).strip().strip('[]')
     if x_str in {'1', '2', '3', 'Mix'}:
-        return {'Mix': 'Mix'}.get(x_str, x_str)
+        return x_str
     return {
         'Type 1 MNV (Occult)': '1',
         'Type 2 MNV (Classic)': '2',
         'Type 3 MNV (Retinal Angiomatous Proliferation - RAP)': '3',
-        'Mixed MNV': 'Mix',
+        'Mix MNV': 'Mix',
     }.get(x_str, "")
 
 
@@ -395,7 +395,7 @@ TASKS = {
         "prompt": MNV_PROMPT,
         "map_label": _map_mnv_label,
         "eval_labels": ['1', '2', '3', 'Mix'],
-        "label_names": {'1': 'Type 1', '2': 'Type 2', '3': 'Type 3', 'Mix': 'Mixed'},
+        "label_names": {'1': 'Type 1', '2': 'Type 2', '3': 'Type 3', 'Mix': 'Mix'},
         "file_prefix": "predictions",
     },
     "mnv_cfp_only": {
@@ -406,7 +406,7 @@ TASKS = {
         "image_mode": "cfp_only",
         "map_label": _map_mnv_label,
         "eval_labels": ['1', '2', '3', 'Mix'],
-        "label_names": {'1': 'Type 1', '2': 'Type 2', '3': 'Type 3', 'Mix': 'Mixed'},
+        "label_names": {'1': 'Type 1', '2': 'Type 2', '3': 'Type 3', 'Mix': 'Mix'},
         "file_prefix": "predictions_mnv_cfp",
     },
     "mnv_oct_only": {
@@ -417,7 +417,7 @@ TASKS = {
         "image_mode": "oct_only",
         "map_label": _map_mnv_label,
         "eval_labels": ['1', '2', '3', 'Mix'],
-        "label_names": {'1': 'Type 1', '2': 'Type 2', '3': 'Type 3', 'Mix': 'Mixed'},
+        "label_names": {'1': 'Type 1', '2': 'Type 2', '3': 'Type 3', 'Mix': 'Mix'},
         "file_prefix": "predictions_mnv_oct",
     },
     "response_direct": {
@@ -455,7 +455,7 @@ TASKS = {
     },
 }
 
-MNV_TYPE_MAP = {'1': 'Type 1 MNV (Occult)', '2': 'Type 2 MNV (Classic)', '3': 'Type 3 MNV (RAP)', 'Mix': 'Mixed MNV'}
+MNV_TYPE_MAP = {'1': 'Type 1 MNV (Occult)', '2': 'Type 2 MNV (Classic)', '3': 'Type 3 MNV (RAP)', 'Mix': 'Mix MNV'}
 
 
 def _get_data_paths(data_source: str):
