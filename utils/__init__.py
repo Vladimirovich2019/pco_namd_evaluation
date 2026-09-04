@@ -38,7 +38,7 @@ def _image_mime(path: str) -> str:
 def prepare_case_data(case_id: str, img_dir: str) -> Optional[Dict]:
     case_dir = os.path.join(img_dir, case_id)
     cfp_path = os.path.join(case_dir, "cfp.jpg")
-    oct_path = os.path.join(case_dir, "oct.jpg")
+    oct_path = os.path.join(case_dir, "oct.png")
 
     if not os.path.exists(cfp_path) or not os.path.exists(oct_path):
         raise ValueError(f"Images not found for case {case_id}")
