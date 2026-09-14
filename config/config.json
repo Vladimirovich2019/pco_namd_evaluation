@@ -1,0 +1,17 @@
+{
+    "GPT": {
+        "model_name": "gpt-5",
+        "base_url": "YOUR_API_BASE_URL/v1/chat/completions",
+        "key": "YOUR_API_KEY"
+    },
+    "Gemini": {
+        "model_name": "gemini-3.1-pro-preview-thinking",
+        "base_url": "YOUR_API_BASE_URL/v1/chat/completions",
+        "key": "YOUR_API_KEY"
+    },
+    "Qwen": {
+        "model_name": "qwen-vl-max",
+        "base_url": "YOUR_API_BASE_URL/v1/chat/completions",
+        "key": "YOUR_API_KEY"
+    }
+}
